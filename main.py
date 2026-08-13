@@ -652,8 +652,8 @@ async def handle_text_messages(message: Message):
             "<b>🔍 Агрегатор:</b>\n"
             "• /labels - список и управление лейблами\n"
             "• /addlabel - пошаговый мастер добавления тегов\n"
-            "• /parserspeed <сек> - установить интервал проверки\n"
-            "• /parserlimit <колво> - глубины парсинга\n\n"
+            "• /parserspeed [сек] - установить интервал проверки\n"
+            "• /parserlimit [колво] - глубина парсинга\n\n"
             "<b>⏱ Автопостинг:</b>\n"
             "• /status - состояние автопостинга и очереди\n"
             "• /timezone - смена часового пояса\n"
@@ -686,10 +686,10 @@ async def handle_text_messages(message: Message):
         if len(parts) > 1 and parts[1].isdigit():
             PARSER_LIMIT = max(1, min(100, int(parts[1])))
             save_state()
-            await message.reply(f"✅ Лимит глубина сбора установлена: <b>{PARSER_LIMIT} постов</b>")
+            await message.reply(f"✅ Лимит глубины сбора установлен: <b>{PARSER_LIMIT} постов</b>")
         else:
             await message.reply("Пример: <code>/parserlimit 30</code>")
-
+            
 # --- ВЕБ-СЕРВЕР И СТАРТ ---
 
 async def create_app():
